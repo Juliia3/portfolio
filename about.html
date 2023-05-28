@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+    <link rel="icon" type="images/x-icon" href="./img/logo.png">
+    <title>About Julia</title>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="header__container container">
+                <nav class="header__menu">
+                    <ul class="header__list">
+                        <li class="header__item"><a href="index.html">HOME</a></li>
+                        <li class="header__item"><a href="about.html" class="active">ABOUT ME</a></li>
+                        <li class="header__item"><a href="mailto:yulya.sobchenko2001@gmail.com">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="themetoggle">
+                    <span class="material-icons">wb_sunny</span>
+                </a>
+            </div> 
+        </header> 
+        <div class="about container">
+            <h1>About me</h1>
+            <div class="about__box">
+                <img class="about__img" src="./img/me.jpeg">
+                <div class="about__text-block">
+                    <p class="about__text">My name is Julia. I'm 22 years old, I'm from Ukraine and currently 
+                        live here. I'm a frontend developer. I'm passionate about what I do. 
+                    I enjoy the process of coding and looking for different ways to find a solution. My objective as a Frontend Developer is to apply my
+                    technical skills in IT craftsmanship and IT implementation, and to utilize my
+                    knowledge in web development to fulfill the company’s vision and mission.  Also I am a team
+                    player, open to change and learn new things fast. With this said, I can assure that I
+                    can be a useful company talent.</p>
+                    <p class="about__text">My English level is B2 and I also improve my Spanish 
+                    level which is A2 for now. I like dancing, travelling and photography.</p>
+                    <div class="about__links-box">
+                        <a class="link" target="_blank" href="https://www.linkedin.com/in/yulyasobchenko03"><img class="about__link" src="./img/linkedin.svg" alt="linkedin"></a>
+                        <a class="link" target="_blank" href="https://github.com/Juliia3"><img class="about__link git" src="./img/github.svg" alt="github"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer__container container">
+                <p class="footer__text">© Yuliia Sobchenko, 2023</p>
+            </div> 
+        </footer>
+    </div>
+    <script>
+        document.querySelector(".themetoggle").addEventListener("click", (event) => {
+  event.preventDefault();
+  if (localStorage.getItem("theme") === "light") {
+    localStorage.removeItem("theme");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+  addLightClassToHtml();
+});
+
+function addLightClassToHtml() {
+  try {
+    if (localStorage.getItem("theme") === "light") {
+      var pageWrapper = document.querySelector(".page-wrapper");
+      if (pageWrapper) {
+        pageWrapper.classList.add("light");
+      }
+      var header = document.querySelector(".header");
+      if (header) {
+        header.classList.add("light");
+      }
+      var footer = document.querySelector(".footer");
+      if (footer) {
+        footer.classList.add("light");
+      }
+      var links = document.querySelectorAll("a");
+      links.forEach(function (link) {
+        link.classList.add("light-text");
+      });
+
+      var buttons = document.querySelectorAll("button");
+      buttons.forEach(function (button) {
+        button.classList.add("light-text");
+      });
+      document.querySelector(".themetoggle span").textContent = "dark_mode";
+    } else {
+      var pageWrapper = document.querySelector(".page-wrapper");
+      if (pageWrapper) {
+        pageWrapper.classList.remove("light");
+      }
+
+      var header = document.querySelector(".header");
+      if (header) {
+        header.classList.remove("light");
+      }
+      var footer = document.querySelector(".footer");
+      if (footer) {
+        footer.classList.remove("light");
+      }
+      var links = document.querySelectorAll("a");
+      links.forEach(function (link) {
+        link.classList.remove("light-text");
+      });
+      var buttons = document.querySelectorAll("button");
+      buttons.forEach(function (button) {
+        button.classList.remove("light-text");
+      });
+      document.querySelector(".themetoggle span").textContent = "wb_sunny";
+    }
+  } catch (err) {}
+}
+
+addLightClassToHtml();
+    </script>
+</body>
+</html>
